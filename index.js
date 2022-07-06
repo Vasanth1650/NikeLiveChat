@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://nikeworld.herokuapp.com/",
+    origin: "https://nikeworld.herokuapp.com",
     methods: ["GET", "POST"],
   },
 });
@@ -31,3 +31,6 @@ io.on("connection", (socket) => {
   });
 });
 
+server.listen("https://nikeworld.herokuapp.com", () => {
+  console.log("SERVER RUNNING");
+});
