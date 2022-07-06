@@ -6,6 +6,7 @@ const { Server } = require("socket.io");
 app.use(cors());
 
 const server = http.createServer(app);
+const port = process.env.PORT || 3000
 
 const io = new Server(server, {
   cors: {
@@ -31,6 +32,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen("https://nikeworld.herokuapp.com", () => {
-  console.log("SERVER RUNNING");
-});
+server.listen(port, () => console.log(`Listening on ${port}`));
