@@ -6,11 +6,10 @@ const { Server } = require("socket.io");
 app.use(cors());
 
 const server = http.createServer(app);
-const port = process.env.PORT || 3000
 
 const io = new Server(server, {
   cors: {
-    origin: "http://nikeworld.herokuapp.com/",
+    origin: "https://nikeworld.herokuapp.com/livesupport",
     methods: ["GET", "POST"],
   },
 });
@@ -32,4 +31,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(port, () => console.log(`Listening on ${port}`));
+server.listen(3001, () => {
+  console.log("SERVER RUNNING");
+});
