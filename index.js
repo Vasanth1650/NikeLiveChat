@@ -7,9 +7,11 @@ app.use(cors());
 
 const server = http.createServer(app);
 
+const port = process.env.PORT || 3001;
+
 const io = new Server(server, {
   cors: {
-    origin: "https://nikeworld.herokuapp.com/livesupport",
+    origin: "https://nikeworld.herokuapp.com",
     methods: ["GET", "POST"],
   },
 });
@@ -31,6 +33,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log("SERVER RUNNING");
+server.listen(port, (error) => {
+    if (error) console.log(error);
+    console.log(`Server started on port ${port}`);
 });
