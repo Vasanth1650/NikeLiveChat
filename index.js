@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 
 const io = new Server(server, {
   cors: {
-    origin: "https://nikeworld.herokuapp.com/",
+    origin: "http://nikeworld.herokuapp.com/",
     methods: ["GET", "POST"],
   },
 });
